@@ -233,7 +233,9 @@ def draw():
             back_sound.play()
         if 'down' not in keys_pressed:
             back_sound.stop()
-
+        if 'calcson' in keys_pressed:
+            calcson.play()
+            keys_pressed.remove('calcson')
 
         car_pos[0] += car_vel[0]
         car_pos[1] += car_vel[1]
@@ -249,7 +251,6 @@ def draw():
                 i.car_Direction *= 2
             end = 1
 
-
     glutSwapBuffers()
 
 
@@ -264,7 +265,8 @@ def keyboard(key, x, y):
         keys_pressed.add('up')
     elif key == b's':
         keys_pressed.add('down')
-
+    elif key == b'c':
+        keys_pressed.add('calcson')
 def keyboard_up(key, x, y):
     global keys_pressed
 
@@ -276,6 +278,8 @@ def keyboard_up(key, x, y):
         keys_pressed.remove('up')
     elif key == b's':
         keys_pressed.remove('down')
+    elif key == b'c':
+        keys_pressed.remove('calcson')
 
 
 def Timer(v):
